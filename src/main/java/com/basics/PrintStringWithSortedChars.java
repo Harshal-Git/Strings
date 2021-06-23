@@ -14,7 +14,7 @@ package com.basics;
  * -> Space complexity:	0(1)
  * -> Auxiliary space: 0(1) - constant size storage in the array
  */
-public class PrintSortedString {
+public class PrintStringWithSortedChars {
 
 	/**
 	 * @param args

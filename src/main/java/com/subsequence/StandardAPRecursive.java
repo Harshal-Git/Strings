@@ -18,8 +18,8 @@ package com.subsequence;
  *		i/p:  s1 = ABCDE & s2 = AED ==>  o/p:  false
  *
  * -> Time complexity:	O(n) [s1 length] + O(n) [s2 length] ~ O(m+n)
- * -> Space complexity:	0(1)
- * -> Auxiliary space: 0(1)
+ * -> Space complexity:	O(m+n)
+ * -> Auxiliary space: O(m+n)
  */
 public class StandardAPRecursive {
 
@@ -44,7 +44,7 @@ public class StandardAPRecursive {
 		s1 = "GEEKSFORGEEKS";
 		s2 = "GRGES";
 		printMessage(s1, s2);
-		
+
 		// case 4
 		s1 = "GEEKSFORGEEKS";
 		s2 = "GRGESK";
@@ -56,7 +56,7 @@ public class StandardAPRecursive {
 	 * @param s2
 	 */
 	private static void printMessage(String s1, String s2) {
-		if(isSubsequence(s1, s2)) {
+		if((s1 != null && s2 != null) && isSubsequence(s1, s1.length(), s2, s2.length())) {
 			System.out.println("\nString - "+s2+" is subsequence of String - "+s1);
 		} else {
 			System.out.println("\nString - "+s2+" is not a subsequence of String - "+s1);
@@ -69,8 +69,27 @@ public class StandardAPRecursive {
 	 * @param s2
 	 * @return - true if s2 subsequence of s1; false otherwise
 	 */
-	private static boolean isSubsequence(String s1, String s2) {
-		return false;
+	private static boolean isSubsequence(String s1, int len1, String s2, int len2) {
+		// input validation
+		if(len1 < len2) {
+			return false;
+		}
+		// if s2 has been exhausted; all characters has been processed
+		if(len2 == 0) {
+			return true;
+		}
+		// if s1 has been exhausted; s2 is not subsequence
+		if(len1 == 0) {
+			return false;
+		}
+		// start from last characters and move ahead
+		// the case when both characters in both strings match
+		if(s1.charAt(len1-1) == s2.charAt(len2-1)) {
+			return isSubsequence(s1, (len1-1), s2, (len2-1));
+		} else {
+			// otherwise only s1 elements to be processed further 
+			return isSubsequence(s1, (len1-1), s2, len2);
+		}
 	}
 
 }
