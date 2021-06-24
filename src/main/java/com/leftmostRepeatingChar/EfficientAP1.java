@@ -8,8 +8,8 @@ package com.leftmostRepeatingChar;
  *
  *	-> Find the left most OR the first most character which is repeated. The string index starts from 0.
  *	
- *	-> Efficient approach 1 : find the frequency of character & store it as index of the array. later iterate over the given array 
- *							and find first ever element whose index is greater than 1.
+ *	-> Efficient approach 1 : find the frequency of character & store it as index of the array. later iterate over the string 
+ *							and given array to find first ever element whose index is greater than 1.
  *
  * 	ex:
  * 

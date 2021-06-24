@@ -71,6 +71,7 @@ public class NaiveAP {
 			// inner loop
 			for(int innerI = 0; innerI < data.length(); innerI++) {
 				// if any character matches with existing character
+				// not to make self comparison
 				if((outerI != innerI) && (data.charAt(outerI) == data.charAt(innerI))) {
 					matchExist = true;
 					break;
