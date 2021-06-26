@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.patternSearching;
+package com.patternSearch.naive;
 
 /**
  * @author Harshal-Git
@@ -16,7 +16,7 @@ package com.patternSearching;
  * 		i/p : data = GEEKSFORGEEKS & pattern = EKS	=> o/p : 2 10 (starting position of pattern in data)
  * 
  * -> Time complexity:	O(m) * O(n) [m - source data length, n - pattern data length] 
- * -> Space complexity:	0(m)+0(n)
+ * -> Space complexity:	0(m)+0(n) [string storage]
  * -> Auxiliary space: 0(1)
  */
 public class NaiveAP1 {
@@ -92,6 +92,7 @@ public class NaiveAP1 {
 				patternFound = true;
 				System.out.print(index+" ");
 			}
+			// move next character
 			index++;
 		}
 		// if no pattern is found ever
